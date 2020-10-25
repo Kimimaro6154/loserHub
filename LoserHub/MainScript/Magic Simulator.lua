@@ -4,6 +4,9 @@ local Table = {}
 local window = Lib:CreateWindow("Magic Simulator")
 local Setting = Lib:CreateWindow("Setting")
 window:Section("Auto Fram")
+window:Toggle("Auto Fram *Fix",{location = Table, flag = "Toggle"},function()
+   af = false
+end)
 window:Toggle("Coin Fram",{location = Table, flag = "Toggle"},function()
    cf = Table["Toggle"]
 end)
