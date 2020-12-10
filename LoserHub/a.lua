@@ -47,7 +47,7 @@ if Name == "Demon" or Name == "Civilian" then
                 if d.Name == Name and d:FindFirstChild("Humanoid") and d.Humanoid.Health > 0 then
                     e.Character.HumanoidRootPart.CFrame =
                         d.HumanoidRootPart.CFrame + d.HumanoidRootPart.CFrame.lookVector * -2
-                    wait(.5)
+                    wait(.2)
                     args = {
                         [1] = {[1] = d},
                         [2] = game:GetService("ReplicatedStorage").Styles.Katana.Vulnerable,
