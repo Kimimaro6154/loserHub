@@ -4,6 +4,9 @@ repeat
     wait()
 until workspace:FindFirstChild("Living")
 function Hop()
+    print(555)
+end
+function Hop1()
     local a = game:GetService("TeleportService")
     local b =
         game:GetService("HttpService"):JSONDecode(
