@@ -395,7 +395,7 @@ function Library:NewWindow(name)
             ToggleTitle.BackgroundColor3 = Color3.new(1, 1, 1)
             ToggleTitle.BackgroundTransparency = 1
             ToggleTitle.BorderSizePixel = 0
-            ToggleTitle.Position = UDim2.new(0.052941177, 0, 0, 0)
+            ToggleTitle.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             ToggleTitle.Size = UDim2.new(0, 125, 0, 30)
             ToggleTitle.Font = Enum.Font.SourceSansBold
             ToggleTitle.Text = name
@@ -500,7 +500,7 @@ function Library:NewWindow(name)
             SliderTitle.BackgroundColor3 = Color3.new(1, 1, 1)
             SliderTitle.BackgroundTransparency = 1
             SliderTitle.BorderSizePixel = 0
-            SliderTitle.Position = UDim2.new(0.052941177, 0, 0, 0)
+            SliderTitle.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             SliderTitle.Size = UDim2.new(0, 125, 0, 15)
             SliderTitle.Font = Enum.Font.SourceSansSemibold
             SliderTitle.Text = name
@@ -682,7 +682,7 @@ function Library:NewWindow(name)
             ColorPickerTitle.BackgroundColor3 = Color3.new(1, 1, 1)
             ColorPickerTitle.BackgroundTransparency = 1
             ColorPickerTitle.BorderSizePixel = 0
-            ColorPickerTitle.Position = UDim2.new(0.052941177, 0, 0, 0)
+            ColorPickerTitle.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             ColorPickerTitle.Size = UDim2.new(0, 125, 0, 30)
             ColorPickerTitle.Font = Enum.Font.SourceSansBold
             ColorPickerTitle.Text = name
@@ -1142,7 +1142,7 @@ function Library:NewWindow(name)
             Button.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
             Button.BackgroundTransparency = 1
             Button.BorderSizePixel = 0
-            Button.Position = UDim2.new(0.042941177, 0, 0, 0)
+            Button.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             Button.Size = UDim2.new(0, 153, 0, 24)
             Button.ZIndex = 2
             Button.AutoButtonColor = false
@@ -1226,7 +1226,7 @@ function Library:NewWindow(name)
             TextBox.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
             TextBox.BackgroundTransparency = 1
             TextBox.ClipsDescendants = true
-            TextBox.Position = UDim2.new(0.0529999994, 0, 0, 0)
+            TextBox.Position = UDim2.new(0.0529999994, 0, 0.075, 0)
             TextBox.Size = UDim2.new(0, 153, 0, 24)
             TextBox.ZIndex = 2
             TextBox.Font = Enum.Font.SourceSansBold
@@ -1328,7 +1328,7 @@ function Library:NewWindow(name)
             DropdownFrame.Parent = DropdownHolder
             DropdownFrame.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
             DropdownFrame.BorderColor3 = Color3.new(1, 1, 1)
-            DropdownFrame.Position = UDim2.new(0.0529999994, 0, 0, 0)
+            DropdownFrame.Position = UDim2.new(0.0529999994, 0, 0.15, 0)
             DropdownFrame.Size = UDim2.new(0, 153, 0, 24)
 
             DropdownTitle.Name = "DropdownTitle"
@@ -1336,7 +1336,7 @@ function Library:NewWindow(name)
             DropdownTitle.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
             DropdownTitle.BackgroundTransparency = 1
             DropdownTitle.BorderSizePixel = 0
-            DropdownTitle.Position = UDim2.new(0.0529999994, 0, 0, 0)
+            DropdownTitle.Position = UDim2.new(0.0529999994, 0, 0.15, 0)
             DropdownTitle.Size = UDim2.new(0, 153, 0, 24)
             DropdownTitle.ZIndex = 2
             DropdownTitle.Font = Enum.Font.SourceSansBold
@@ -1591,7 +1591,7 @@ function Library:NewWindow(name)
             ButtonText.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
             ButtonText.BackgroundTransparency = 1
             ButtonText.BorderSizePixel = 0
-            ButtonText.Position = UDim2.new(0.052941177, 0, 0, 0)
+            ButtonText.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             ButtonText.Size = UDim2.new(0, 153, 0, 24)
             ButtonText.ZIndex = 2
             ButtonText.AutoButtonColor = false
@@ -1668,7 +1668,7 @@ function Library:NewWindow(name)
             ImageTitle.Parent = ImageHolder
             ImageTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             ImageTitle.BackgroundTransparency = 1.000
-            ImageTitle.Position = UDim2.new(0.052941177, 0, 0, 0)
+            ImageTitle.Position = UDim2.new(0.052941177, 0, 0.075, 0)
             ImageTitle.Size = UDim2.new(0, 28, 0, 28)
             ImageTitle.Image = Image
                 
