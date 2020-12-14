@@ -1328,7 +1328,7 @@ function Library:NewWindow(name)
             DropdownFrame.Parent = DropdownHolder
             DropdownFrame.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
             DropdownFrame.BorderColor3 = Color3.new(1, 1, 1)
-            DropdownFrame.Position = UDim2.new(0.0529999994, 0, 0.15, 0)
+            DropdownFrame.Position = UDim2.new(0.0529999994, 0, 0, 0)
             DropdownFrame.Size = UDim2.new(0, 153, 0, 24)
 
             DropdownTitle.Name = "DropdownTitle"
@@ -1336,7 +1336,7 @@ function Library:NewWindow(name)
             DropdownTitle.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
             DropdownTitle.BackgroundTransparency = 1
             DropdownTitle.BorderSizePixel = 0
-            DropdownTitle.Position = UDim2.new(0.0529999994, 0, 0.15, 0)
+            DropdownTitle.Position = UDim2.new(0.0529999994, 0, 0, 0)
             DropdownTitle.Size = UDim2.new(0, 153, 0, 24)
             DropdownTitle.ZIndex = 2
             DropdownTitle.Font = Enum.Font.SourceSansBold
