@@ -99,6 +99,11 @@ kp:CreateButton("Telepoet Player",function()
     plr1.HumanoidRootPart.CFrame = plr2.HumanoidRootPart.CFrame
 end)
 kp:CreateButton("Esp Player",function()
+    for i , v in pairs (workspace:GetDescendants()) do
+        if string.find(v.Name, "ESPPLAYER") then
+            v:Destroy()
+        end
+    end
     for i , v in pairs (workspace:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
             if v.Name == game.Players.LocalPlayer.Name then
@@ -106,6 +111,7 @@ kp:CreateButton("Esp Player",function()
             else
             local BillboardGui = Instance.new("BillboardGui")
             local TextLabel = Instance.new("TextLabel")
+            BillboardGui.Naem = "ESPPLAYER"
             BillboardGui.Parent = v
             BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
             BillboardGui.Active = true
