@@ -111,7 +111,7 @@ kp:CreateButton("Esp Player",function()
             else
             local BillboardGui = Instance.new("BillboardGui")
             local TextLabel = Instance.new("TextLabel")
-            BillboardGui.Naem = "ESPPLAYER"
+            BillboardGui.Name = "ESPPLAYER"
             BillboardGui.Parent = v
             BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
             BillboardGui.Active = true
