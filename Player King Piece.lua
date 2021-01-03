@@ -119,7 +119,7 @@ kp:CreateButton("Esp Player",function()
             TextLabel.Size = UDim2.new(0, 100, 0, 25)
             TextLabel.Font = Enum.Font.SourceSans
             TextLabel.Text = v.Name
-            TextLabel.TextColor3 = Color3.new(0, 255, 19)
+            TextLabel.TextColor3 = Color3.new(0, 0 ,0)
             TextLabel.TextScaled = true
             TextLabel.TextSize = 14
             TextLabel.TextWrapped = true
