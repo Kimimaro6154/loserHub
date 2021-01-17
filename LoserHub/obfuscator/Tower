@@ -1,0 +1,173 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kimimaro6154/loserHub/main/LoserHub/uilib.lua"))()
+local w = library:NewWindow("Tower of Hell")
+local a = w:NewSection("Main")
+local a1 = w:NewSection("Misc.")
+local a2 = w:NewSection("Player.")
+a:CreateTextLabel("A")
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+    if v.Name == "A" then
+        v.Text = "--    Features    -- "
+        v.TextSize = 18
+    end
+end
+GodMode = false
+a:CreateButton("God Mode",function() 
+    GodMode = true
+end)
+spawn(function()
+    while true do wait(0.8)
+        if GodMode then
+            game:GetService("Players").LocalPlayer.Character.KillScript.Disabled = true
+        end
+    end
+end)
+
+a:CreateButton("Teleport to win",function() 
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").tower.finishes.Finish.CFrame
+end)
+a:CreateButton("Fly (Press E)",function() 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Kimimaro6154/loserHub/main/LoserHub/fly.lua"))()
+end)
+
+a1:CreateTextLabel("A1")
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+    if v.Name == "A1" then
+        v.Text = "--    Misc    -- "
+        v.TextSize = 18
+    end
+end
+
+FULLBRIGHT = false
+a1:CreateToggle("Full Bright",function(a)
+    FULLBRIGHT = a
+    if FULLBRIGHT then
+        game.Lighting.Ambient = Color3.fromRGB(178, 178, 178)
+        game.Lighting.TimeOfDay = "12:00:00"
+        game.Lighting.FogEnd = "786543"
+        game.Lighting.ClockTime = "12"
+    elseif not FULLBRIGHT then
+        game.Lighting.Ambient = Color3.fromRGB(127, 127, 127)
+        game.Lighting.FogEnd = "1200"
+        game.Lighting.TimeOfDay = "14:00:00"
+        game.Lighting.ClockTime = "14"
+    end
+end)
+a2:CreateTextLabel("A2")
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+    if v.Name == "A2" then
+        v.Text = "--    Player    -- "
+        v.TextSize = 18
+    end
+end
+a2:CreateSlider("Walk Speed", 16, 50, 16 ,false,function(value)
+    game:GetService("Players").LocalPlayer.Character.Gaylol.WalkSpeed = value
+end)
+
+a2:CreateSlider("Jump Power", 50, 100, 50 ,false,function(value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+end)
+
+InfiniteJumpEnabled = false
+a1:CreateToggle("Infinite Jump",function(a)
+    InfiniteJumpEnabled = a
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+        end
+    end)
+end)
+
+local s1 = library:NewWindow("Setting")
+local set = s1:NewSection("Setting")
+
+set:CreateTextLabel("Toggle Gui - RightControl", 17.5)
+set:CreateTextLabel("Shiro Hub", 18)
+set:CreateTextLabel("discord.gg/rBDwRu87EH", 17)
+set:CreateButton("Copy link discord",function()
+    setclipboard("https://discord.gg/rBDwRu87EH")
+end)
+set:CreateButton("Destroy Gui",function()
+    if game:GetService("CoreGui"):FindFirstChild("loserui") then
+        game:GetService("CoreGui").loserui:Destroy()
+    end
+end)
+set:CreateTextLabel("--   Server   --", 18)
+set:CreateButton("Rejoin",function()
+    local ts = game:GetService("TeleportService")
+    local p = game:GetService("Players").LocalPlayer
+    ts:Teleport(game.PlaceId, p)
+end)
+
+set:CreateButton("Server Hob",function()
+    local PlaceID = game.PlaceId
+    local AllIDs = {}
+    local foundAnything = ""
+    local actualHour = os.date("!*t").hour
+    local Deleted = false
+    local File = pcall(function()
+        AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+    end)
+    if not File then
+        table.insert(AllIDs, actualHour)
+        writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+    end
+    function TPReturner()
+        local Site;
+        if foundAnything == "" then
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+        else
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+        end
+        local ID = ""
+        if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+            foundAnything = Site.nextPageCursor
+        end
+        local num = 0;
+        for i,v in pairs(Site.data) do
+            local Possible = true
+            ID = tostring(v.id)
+            if tonumber(v.maxPlayers) > tonumber(v.playing) then
+                for _,Existing in pairs(AllIDs) do
+                    if num ~= 0 then
+                        if ID == tostring(Existing) then
+                            Possible = false
+                        end
+                    else
+                        if tonumber(actualHour) ~= tonumber(Existing) then
+                            local delFile = pcall(function()
+                                delfile("NotSameServers.json")
+                                AllIDs = {}
+                                table.insert(AllIDs, actualHour)
+                            end)
+                        end
+                    end
+                    num = num + 1
+                end
+                if Possible == true then
+                    table.insert(AllIDs, ID)
+                    wait()
+                    pcall(function()
+                        writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                        wait()
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                    end)
+                    wait(4)
+                end
+            end
+        end
+    end
+    function Teleport()
+        while wait() do
+            pcall(function()
+                TPReturner()
+                if foundAnything ~= "" then
+                    TPReturner()
+                end
+            end)
+        end
+    end
+    Teleport()
+end)
+-- anit CHEAT
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Kimimaro6154/loserHub/main/LoserHub/Tower%20Of%20Hell%20ANTI%20CHEAT%20BYPASS%20DECEMBER.lua"))()
+--
